@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.UI;
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     [Header("Panels")]
@@ -62,11 +61,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             playerSpawn.transform.SetParent(spawnPoint[0]);
             playerSpawn.transform.localScale = Vector3.one;
             
-            playerObjectList.Add(player.ActorNumber,playerSpawn);
+            if(!playerObjectList.ContainsKey(player.ActorNumber))
+                playerObjectList.Add(player.ActorNumber,playerSpawn);
         }
-
-       
-
     }
 
     public override void OnLeftRoom()
@@ -88,8 +85,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         
         if(PhotonNetwork.LocalPlayer.IsMasterClient)
             startGameBtn.SetActive(true);
-
-
     }
 
 

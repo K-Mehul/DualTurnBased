@@ -889,6 +889,8 @@ MonoBehaviour:
   totalHealth: 0
   btn: {fileID: 0}
   healthBar: {fileID: 0}
+  winLoseTxt: {fileID: 0}
+  leaveBtn: {fileID: 0}
 --- !u!1 &1000012079282026
 GameObject:
   m_ObjectHideFlags: 0
